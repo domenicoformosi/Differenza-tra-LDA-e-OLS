@@ -18,7 +18,7 @@ Questa applicazione mostra il confronto tra la **Regressione ai Minimi Quadrati 
 
 Per personalizzare il numero di outliers nei dati, l'app consente di modificare le variabili `outliers1` e `outliers2`. Queste variabili controllano la **proporzione di outliers** che vengono aggiunti nei due scenari:
 
-- **`outliers1`**: Definisce la proporzione di outliers nel primo scenario. Maggiore è il valore, maggiore sarà la quantità di outliers introdotti nei dati.
+- **`outliers1`**: Definisce la proporzione di outliers nel primo scenario. Maggiore è il valore, minore sarà la quantità di outliers introdotti nei dati.
 - **`outliers2`**: Definisce la proporzione di outliers nel secondo scenario. Anche qui, modificando questo valore, si può variare la quantità di outliers nel secondo set di dati.
 
 ### Come Cambiare le Proporzioni degli Outliers
