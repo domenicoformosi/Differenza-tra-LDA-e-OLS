@@ -23,9 +23,9 @@ Per personalizzare il numero di outliers nei dati, l'app consente di modificare 
 
 ### Come Cambiare le Proporzioni degli Outliers
 
-1. **Aumentando `outliers1` o `outliers2`**: Aumentando questi valori, si introduce un numero maggiore di outliers nei dati. Di conseguenza, il modello OLS sarà più influenzato da questi outliers, mentre la regressione LAD sarà meno sensibile e rimarrà più stabile.
+1. **Aumentando `outliers1` o `outliers2`**: Aumentando questi valori, si riduce la quantità di outliers nei dati, il che permetterà ai modelli OLS e LAD di comportarsi in modo più simile. Quando i dati sono privi di outliers, l'OLS tende ad essere più efficiente rispetto alla LAD.
 
-2. **Riducendo `outliers1` o `outliers2`**: Riducendo questi valori, si riduce la quantità di outliers nei dati, il che permetterà ai modelli OLS e LAD di comportarsi in modo più simile. Quando i dati sono privi di outliers, l'OLS tende ad essere più efficiente rispetto alla LAD.
+2. **Riducendo `outliers1` o `outliers2`**: Riducendo questi valori,si introduce un numero maggiore di outliers nei dati. Di conseguenza, il modello OLS sarà più influenzato da questi outliers, mentre la regressione LAD sarà meno sensibile e rimarrà più stabile. 
 
 ### Osservazioni
 
