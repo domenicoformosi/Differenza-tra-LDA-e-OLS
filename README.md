@@ -4,6 +4,8 @@
 
 Questa applicazione mostra il confronto tra la **Regressione ai Minimi Quadrati Ordinari (OLS)** e la **Regressione ai Minimi Assoluti (LAD)** utilizzando la libreria **Statsmodels** di Python. Viene visualizzato come i due metodi di regressione si comportano su set di dati con e senza outliers, permettendo agli utenti di osservare le differenze nel fitting dei modelli. L'app aiuta a comprendere come gli outliers influenzano i modelli di regressione e perché la **LAD** è più robusta rispetto alla **OLS**.
 
+> **Nota**: Questa applicazione è stata sviluppata da uno studente di Ingegneria Informatica come progetto personale e non ha alcuna pretesa di essere completamente corretta o priva di errori. L'obiettivo principale è educativo e dimostrativo, e non è garantita l'accuratezza dei risultati o l'adeguatezza a scopi professionali.
+
 ## Funzionalità principali
 
 - **Visualizzazione Interattiva delle Regressioni**: L'app mostra due tipi di modelli di regressione su due scenari diversi:
@@ -12,69 +14,25 @@ Questa applicazione mostra il confronto tra la **Regressione ai Minimi Quadrati 
   
 - **Dati con Outliers**: L'app consente di confrontare visivamente come i modelli di regressione si comportano quando il set di dati contiene outliers. Gli outliers vengono introdotti in posizioni diverse nei dati per simulare irregolarità tipiche nei dati reali.
 
-## Differenze tra OLS e LAD
+## Variabili `outliers1` e `outliers2`
 
-### OLS (Ordinary Least Squares)
+Per personalizzare il numero di outliers nei dati, l'app consente di modificare le variabili `outliers1` e `outliers2`. Queste variabili controllano la **proporzione di outliers** che vengono aggiunti nei due scenari:
 
-**Pro**:
-- **Semplicità e Interpretabilità**: L'OLS è il metodo di regressione più semplice e ben compreso. È facile da implementare e i risultati sono facilmente interpretabili.
-- **Efficienza**: Se i dati non contengono outliers, l'OLS è molto efficiente. La stima dei parametri è asintoticamente non distorta e la varianza delle stime è minimizzata.
-- **Estrazione di Informazioni Statistiche**: L'OLS fornisce statistiche utili, come il valore di \( R^2 \), i test di significatività dei coefficienti, e intervalli di confidenza per i parametri stimati.
+- **`outliers1`**: Definisce la proporzione di outliers nel primo scenario. Maggiore è il valore, maggiore sarà la quantità di outliers introdotti nei dati.
+- **`outliers2`**: Definisce la proporzione di outliers nel secondo scenario. Anche qui, modificando questo valore, si può variare la quantità di outliers nel secondo set di dati.
 
-**Contro**:
-- **Sensibilità agli Outliers**: L'OLS è molto sensibile agli outliers. Un singolo punto anomalo può influenzare significativamente la retta di regressione, portando a stime distorte dei parametri.
-- **Non Robustezza**: Quando i dati non sono distribuiti normalmente o contengono outliers, l'OLS può fornire stime imprecise e fuorvianti.
-- **Assunzione di Normalità**: L'OLS presuppone che i residui siano distribuiti normalmente, il che non è sempre il caso nei dati reali.
+### Come Cambiare le Proporzioni degli Outliers
 
----
+1. **Aumentando `outliers1` o `outliers2`**: Aumentando questi valori, si introduce un numero maggiore di outliers nei dati. Di conseguenza, il modello OLS sarà più influenzato da questi outliers, mentre la regressione LAD sarà meno sensibile e rimarrà più stabile.
 
-### LAD (Least Absolute Deviations)
+2. **Riducendo `outliers1` o `outliers2`**: Riducendo questi valori, si riduce la quantità di outliers nei dati, il che permetterà ai modelli OLS e LAD di comportarsi in modo più simile. Quando i dati sono privi di outliers, l'OLS tende ad essere più efficiente rispetto alla LAD.
 
-**Pro**:
-- **Robustezza agli Outliers**: Il principale vantaggio della regressione LAD è la sua robustezza agli outliers. Poiché minimizza la somma dei residui assoluti invece dei quadrati, gli outliers hanno un impatto minimo sui risultati.
-- **Adatto per Dati con Distribuzioni Non Normali**: LAD non richiede che i residui siano normalmente distribuiti, rendendolo una scelta migliore quando i dati non soddisfano questa assunzione.
-- **Flessibilità**: LAD può essere utilizzato anche in situazioni in cui la relazione tra le variabili non è lineare, sebbene la modellizzazione lineare rimanga una delle sue applicazioni principali.
+### Osservazioni
 
-**Contro**:
-- **Minore Efficienza**: Se i dati sono privi di outliers e ben distribuiti, la regressione LAD è meno efficiente dell'OLS. L'OLS fornisce stime più precise in presenza di dati regolari e senza anomalie.
-- **Meno Informazioni Statistiche**: La regressione LAD non fornisce statistiche di inferenza come l'OLS (ad esempio, intervalli di confidenza o test t), il che rende più difficile fare inferenze su base statistica.
-- **Più Complesso da Interpretare**: I risultati della regressione LAD sono meno facilmente interpretabili rispetto all'OLS, soprattutto quando si cerca di trarre conclusioni sui coefficienti di regressione.
+- **Scenari con pochi outliers**: Quando la proporzione di outliers è bassa, i risultati delle due regressioni saranno simili, ma l'OLS potrebbe essere leggermente più preciso.
+- **Scenari con molti outliers**: Quando la proporzione di outliers è alta, la regressione LAD diventa molto utile poiché è meno influenzata da questi valori anomali, mentre l'OLS potrebbe produrre stime distorte.
 
----
+...
 
-### Confronto tra OLS e LAD
+> **Nota Importante**: Eventuali miglioramenti, correzioni o suggerimenti sono benvenuti!
 
-| **Caratteristica**        | **OLS**                                     | **LAD**                                      |
-|---------------------------|---------------------------------------------|----------------------------------------------|
-| **Sensibilità agli Outliers** | Molto sensibile agli outliers.               | Molto robusto agli outliers.                  |
-| **Efficienza**             | Alta, quando i dati sono senza outliers.    | Inferiore a OLS in presenza di dati regolari.|
-| **Assunzioni**             | Richiede che i residui siano normalmente distribuiti. | Non richiede normalità dei residui.           |
-| **Statistiche**            | Fornisce statistiche utili (es. \( R^2 \), test di significatività). | Non fornisce statistiche inferenziali standard. |
-| **Interpretabilità**       | Facile da interpretare e spiegare.          | Più difficile da interpretare rispetto a OLS. |
-
----
-
-### Quando Utilizzare OLS vs LAD
-
-- **Usa OLS**:
-  - Quando i dati sono privi di outliers o anomalie.
-  - Quando si desidera ottenere stime precise e statistiche inferenziali come i test di significatività.
-  - Quando si assume che i residui siano distribuiti normalmente.
-  
-- **Usa LAD**:
-  - Quando i dati contengono outliers o sono influenzati da valori estremi.
-  - Quando i dati non seguono una distribuzione normale o hanno una distribuzione pesante di code.
-  - Quando si cerca un modello robusto che minimizzi l'impatto di errori anomali nei dati.
-
----
-
-## Scopo dell'app
-
-L'obiettivo dell'app è di mostrare come le due tecniche di regressione (OLS e LAD) si comportano su dati che includono outliers. Utilizzando due scenari con outliers posizionati in punti diversi dei dati, l'app permette di visualizzare come la regressione OLS venga influenzata negativamente dagli outliers, mentre la regressione LAD rimanga più stabile e robusta.
-
-## Istruzioni per l'installazione
-
-1. **Clona il repository**:
-   ```bash
-   git clone <repository_url>
-   cd <repository_directory>
