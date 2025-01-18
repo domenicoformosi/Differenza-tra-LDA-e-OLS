@@ -32,7 +32,7 @@ def run_regressions_and_plot(Y, ax, title_suffix):
 Y1 = 2 * X[:, 1] + np.random.normal(size=n_samples)
 Y1[95:] += 20  # Introduce outliers in the last 5 points
 
-# Scenario 2: Outliers at Y[70:]
+# Scenario 2: Outliers at Y[80:]
 Y2 = 2 * X[:, 1] + np.random.normal(size=n_samples)
 Y2[80:] += 20  # Introduce outliers in the last 30 points
 
