@@ -1,5 +1,5 @@
 # App di Confronto tra Regressioni
-
+![Alt text](esempio.png)
 ## Panoramica
 
 Questa applicazione mostra il confronto tra la **Regressione ai Minimi Quadrati Ordinari (OLS)** e la **Regressione ai Minimi Assoluti (LAD)** utilizzando la libreria **Statsmodels** di Python. Viene visualizzato come i due metodi di regressione si comportano su set di dati con e senza outliers, permettendo agli utenti di osservare le differenze nel fitting dei modelli. L'app aiuta a comprendere come gli outliers influenzano i modelli di regressione e perché la **LAD** è più robusta rispetto alla **OLS**.
